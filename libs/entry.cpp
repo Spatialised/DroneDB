@@ -227,7 +227,7 @@ void calculateFootprint(const exif::SensorSize &sensorSize, const exif::GeoLocat
 
     // Cap pitch to 30 degrees
     double pitch = cameraOri.pitch;
-    if (pitch > -5){
+    if (pitch > -85){
         LOGD << "Pitch cap exceeded (" << pitch << ") using nadir";
         pitch = -90; // set to nadir
     }
