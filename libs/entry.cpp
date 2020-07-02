@@ -225,12 +225,13 @@ void calculateFootprint(const exif::SensorSize &sensorSize, const exif::GeoLocat
     // Tall
     double yView = 2.0 * atan(sensorSize.height / (2.0 * focal.length));
 
-    // Cap pitch to 30 degrees
+    // Trust pitch
+
     double pitch = cameraOri.pitch;
-    if (pitch > -85){
-        LOGD << "Pitch cap exceeded (" << pitch << ") using nadir";
-        pitch = -90; // set to nadir
-    }
+    //if (pitch > -85){
+    //    LOGD << "Pitch cap exceeded (" << pitch << ") using nadir";
+    //    pitch = -90; // set to nadir
+    //}
 
     // From drone to...
     double bottom = relAltitude * tan(utils::deg2rad(90.0 + pitch) - 0.5 * yView);
